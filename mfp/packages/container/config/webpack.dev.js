@@ -23,6 +23,13 @@ const devConfig = {
       },
       shared: packageJson.dependencies,
     }),
+    new ModuleFederationPlugin({
+      name: 'container',
+      remotes: {
+        auth: 'auth@http://localhost:8082/remoteEntry.js',
+      },
+      shared: packageJson.dependencies,
+    }),
   ],
 };
 
